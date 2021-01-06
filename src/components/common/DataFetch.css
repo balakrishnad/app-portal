@@ -1,0 +1,42 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap";
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.title 
+{
+    color:black;
+    /* color:#797474; */
+    font-weight: bold;
+}
+p{
+    color:black;
+    font-weight: 300;
+}
+.main{
+    background-color:lightgrey ;
+}
+.icons 
+{
+    opacity: 0.5;
+    border-radius: 50%;
+}
+.icons:hover{
+    opacity: 1;
+}
+.card
+{
+    width:90%;
+    border-radius: 10px; 
+}
+ 
+#profile-description .show-more-height { 
+    height: 9rem; 
+    overflow:hidden; 
+  }
+.card.my-2{
+    width:100%;
+    margin-top: 0!important;
+    margin-bottom: 2.5rem !important;
+    border-radius: 1rem;
+}

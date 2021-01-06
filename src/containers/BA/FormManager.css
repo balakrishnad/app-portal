@@ -1,0 +1,25 @@
+#form-manager .list-group-item .btn {
+    margin-right: 0.5rem;
+}
+
+#form-manager .list-group-item .btn-primary {
+    background-color: lightslategrey;
+    border-color: inherit;
+}
+
+#form-manager .list-group-item .btn-warning {
+    background-color: cadetblue;
+    border-color: inherit;
+    color: #fff;
+}
+
+#form-manager .list-group-item .btn-secondary {
+    background-color: peru;
+    border-color: inherit;
+}
+
+#form-manager .list-group-item .btn-danger {
+    background-color: crimson;
+    border-color: inherit;
+    padding-left: 0.7rem;
+}

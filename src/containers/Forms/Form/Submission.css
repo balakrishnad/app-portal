@@ -1,0 +1,56 @@
+#submission-grid .list-group-item .row {
+    flex-wrap: nowrap;
+}
+#submission-grid ul{
+    overflow-x: scroll;
+}
+#submission-grid .list-group-item .btn {
+    margin-right: 0.5rem;
+}
+
+#submission-grid .list-group-item .btn-primary {
+    background-color: lightslategrey;
+    border-color: inherit;
+} 
+
+#submission-grid .list-group-item .btn-warning {
+    background-color: cadetblue;
+    border-color: inherit;
+    color: #fff;
+}
+
+#submission-grid .list-group-item .btn-secondary {
+    background-color: peru;
+    border-color: inherit;
+}
+
+#submission-grid .list-group-item .btn-danger {
+    background-color: crimson;
+    border-color: inherit;
+    padding-left: 0.7rem;
+}
+
+#submission-grid .table-bordered th, #submission-grid .table-bordered td {
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+#submission-grid .table-bordered{
+    margin-top:2rem;
+}
+.delete-model .modal-title{
+    font-weight: 500;
+}
+.delete-model .modal-body{
+    text-align: initial;
+}
+.sort .fa {
+    color: #98c2f2;
+    font-size: 1.4rem;
+    padding: 0.3rem 1rem;
+}
+.back-btn .fa{
+    color:#98c2f2;
+    font-size: 1.5rem;
+    cursor:pointer;
+}

@@ -1,0 +1,25 @@
+.wrapper-div {
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: 0px 2px 20px -5px #2b2b2b;
+}
+.wrapper-div .download-btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 20px;
+}
+  .download-btn a, .download-btn:hover a {
+    color: #fff;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    text-decoration: none;
+}
+  
+  /* Darker background on mouse-over */
+  .wrapper-div .download-btn:hover {
+    background-color: RoyalBlue;
+    color:#fff;
+  }

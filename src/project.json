@@ -1,0 +1,3377 @@
+{
+    "title": "pepsico-form-io-poc",
+    "version": "2.0.0",
+    "description": "POC project",
+    "roles": {
+        "administrator": {
+            "title": "Administrator",
+            "description": "A role for Administrative Users.",
+            "admin": true,
+            "default": true
+        },
+        "authenticated": {
+            "title": "Authenticated",
+            "description": "A role for Authenticated Users.",
+            "admin": false,
+            "default": false
+        },
+        "anonymous": {
+            "title": "Anonymous",
+            "description": "A role for Anonymous Users.",
+            "admin": false,
+            "default": false
+        }
+    },
+    "forms": {
+        "userLogin": {
+            "title": "User Login",
+            "type": "form",
+            "name": "userLogin",
+            "path": "user/login",
+            "display": "form",
+            "tags": [],
+            "components": [
+                {
+                    "type": "email",
+                    "placeholder": "Enter your email address",
+                    "key": "email",
+                    "lockKey": true,
+                    "label": "Email",
+                    "tableView": true,
+                    "input": true
+                },
+                {
+                    "type": "password",
+                    "protected": true,
+                    "placeholder": "Enter your password.",
+                    "key": "password",
+                    "lockKey": true,
+                    "label": "Password",
+                    "inputType": "password",
+                    "tableView": false,
+                    "input": true
+                },
+                {
+                    "type": "button",
+                    "disableOnInvalid": true,
+                    "key": "submit",
+                    "tableView": false,
+                    "label": "Submit",
+                    "input": true
+                }
+            ]
+        },
+        "userRegister": {
+            "title": "User Register",
+            "type": "form",
+            "name": "userRegister",
+            "path": "user/register",
+            "tags": [],
+            "components": [
+                {
+                    "type": "email",
+                    "persistent": true,
+                    "unique": false,
+                    "protected": false,
+                    "defaultValue": "",
+                    "suffix": "",
+                    "prefix": "",
+                    "placeholder": "Enter your email address",
+                    "key": "email",
+                    "lockKey": true,
+                    "label": "Email",
+                    "inputType": "email",
+                    "tableView": true,
+                    "input": true
+                },
+                {
+                    "type": "password",
+                    "persistent": true,
+                    "protected": true,
+                    "suffix": "",
+                    "prefix": "",
+                    "placeholder": "Enter your password.",
+                    "key": "password",
+                    "lockKey": true,
+                    "label": "Password",
+                    "inputType": "password",
+                    "tableView": false,
+                    "input": true
+                },
+                {
+                    "theme": "primary",
+                    "disableOnInvalid": true,
+                    "action": "submit",
+                    "block": false,
+                    "rightIcon": "",
+                    "leftIcon": "",
+                    "size": "md",
+                    "key": "submit",
+                    "label": "Submit",
+                    "input": true,
+                    "type": "button"
+                }
+            ]
+        },
+        "adminLogin": {
+            "title": "Admin Login",
+            "type": "form",
+            "name": "adminLogin",
+            "path": "admin/login",
+            "tags": [],
+            "components": [
+                {
+                    "type": "email",
+                    "persistent": true,
+                    "unique": false,
+                    "protected": false,
+                    "defaultValue": "",
+                    "suffix": "",
+                    "prefix": "",
+                    "placeholder": "Enter your email address",
+                    "key": "email",
+                    "lockKey": true,
+                    "label": "Email",
+                    "inputType": "email",
+                    "tableView": true,
+                    "input": true
+                },
+                {
+                    "type": "password",
+                    "persistent": true,
+                    "protected": true,
+                    "suffix": "",
+                    "prefix": "",
+                    "placeholder": "Enter your password.",
+                    "key": "password",
+                    "lockKey": true,
+                    "label": "Password",
+                    "inputType": "password",
+                    "tableView": false,
+                    "input": true
+                },
+                {
+                    "type": "button",
+                    "theme": "primary",
+                    "disableOnInvalid": true,
+                    "action": "submit",
+                    "block": false,
+                    "rightIcon": "",
+                    "leftIcon": "",
+                    "size": "md",
+                    "key": "submit",
+                    "tableView": false,
+                    "label": "Submit",
+                    "input": true
+                }
+            ]
+        },
+        "flus": {
+            "title": "FLUS",
+            "type": "form",
+            "name": "flus",
+            "path": "flus",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "input": true,
+                    "tableView": true,
+                    "label": "Function",
+                    "key": "function",
+                    "values": [
+                        {
+                            "value": "manu",
+                            "label": "Manufacturing",
+                            "shortcut": ""
+                        },
+                        {
+                            "value": "ware",
+                            "label": "Warehouse",
+                            "shortcut": ""
+                        },
+                        {
+                            "value": "inMark",
+                            "label": "In Market Ops",
+                            "shortcut": ""
+                        },
+                        {
+                            "value": "trans",
+                            "label": "Transportation",
+                            "shortcut": ""
+                        }
+                    ],
+                    "validate": {
+                        "required": true
+                    },
+                    "type": "radio",
+                    "labelPosition": "left-left",
+                    "optionsLabelPosition": "right",
+                    "inline": true,
+                    "labelWidth": 30,
+                    "labelMargin": 3,
+                    "path": "function"
+                },
+                {
+                    "label": "Columns",
+                    "input": false,
+                    "tableView": false,
+                    "key": "columns",
+                    "columns": [
+                        {
+                            "components": [
+                                {
+                                    "input": true,
+                                    "tableView": true,
+                                    "label": "Manufacturing Area",
+                                    "key": "manufacturingArea",
+                                    "data": {
+                                        "values": [
+                                            {
+                                                "value": "cartons",
+                                                "label": "Cartons"
+                                            },
+                                            {
+                                                "value": "finishedWaste",
+                                                "label": "Finished Waste"
+                                            },
+                                            {
+                                                "value": "foodSafety",
+                                                "label": "Food Safety"
+                                            },
+                                            {
+                                                "value": "indirects",
+                                                "label": "Indirects"
+                                            },
+                                            {
+                                                "value": "packaging",
+                                                "label": "Packaging"
+                                            }
+                                        ],
+                                        "headers": [
+                                            {
+                                                "value": "",
+                                                "key": ""
+                                            }
+                                        ]
+                                    },
+                                    "type": "select",
+                                    "conditional": {
+                                        "show": "true",
+                                        "when": "function",
+                                        "eq": "manu"
+                                    },
+                                    "hideOnChildrenHidden": false
+                                }
+                            ],
+                            "width": 6,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        },
+                        {
+                            "components": [],
+                            "width": 6,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        }
+                    ],
+                    "type": "columns",
+                    "hideLabel": true
+                },
+                {
+                    "label": "Columns",
+                    "input": false,
+                    "tableView": false,
+                    "key": "columns2",
+                    "columns": [
+                        {
+                            "components": [
+                                {
+                                    "input": true,
+                                    "tableView": true,
+                                    "label": "Region",
+                                    "key": "region",
+                                    "data": {
+                                        "values": [
+                                            {
+                                                "value": "atlantic",
+                                                "label": "Atlantic"
+                                            },
+                                            {
+                                                "value": "midAmerica",
+                                                "label": "MidAmerica"
+                                            },
+                                            {
+                                                "value": "midWest",
+                                                "label": "MidWest"
+                                            },
+                                            {
+                                                "value": "northEast",
+                                                "label": "NorthEast"
+                                            }
+                                        ],
+                                        "resource": "regionFlus",
+                                        "project": "project"
+                                    },
+                                    "dataSrc": "resource",
+                                    "valueProperty": "data.REGION_FLUS_NM",
+                                    "template": "<span>{{ item.data.REGION_FLUS_NM }}</span>",
+                                    "type": "select",
+                                    "lockKey": true,
+                                    "searchField": "data.REGION_FLUS_NM__regex",
+                                    "hideOnChildrenHidden": false
+                                }
+                            ],
+                            "width": 5,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        },
+                        {
+                            "components": [
+                                {
+                                    "input": true,
+                                    "tableView": true,
+                                    "label": "Site",
+                                    "key": "columns2Site",
+                                    "data": {
+                                        "values": [
+                                            {
+                                                "value": "",
+                                                "label": ""
+                                            }
+                                        ],
+                                        "resource": "siteFlus",
+                                        "project": "project"
+                                    },
+                                    "dataSrc": "resource",
+                                    "valueProperty": "data.SITE_FLUS_NM",
+                                    "filter": "data.REGION_FLUS_NAME={{data.region}}",
+                                    "template": "<span>{{ item.data.SITE_FLUS_NM }}</span>",
+                                    "type": "select",
+                                    "hideOnChildrenHidden": false
+                                }
+                            ],
+                            "width": 4,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        },
+                        {
+                            "components": [
+                                {
+                                    "input": true,
+                                    "tableView": true,
+                                    "label": "Div Lov",
+                                    "key": "columns2DivLov",
+                                    "spellcheck": true,
+                                    "type": "textfield",
+                                    "disabled": true,
+                                    "calculateServer": false,
+                                    "hideOnChildrenHidden": false
+                                }
+                            ],
+                            "width": 3,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        }
+                    ],
+                    "type": "columns",
+                    "hideLabel": true
+                },
+                {
+                    "key": "content",
+                    "label": "Content",
+                    "input": false,
+                    "attrs": [
+                        {
+                            "value": "",
+                            "attr": ""
+                        }
+                    ],
+                    "content": "test",
+                    "type": "htmlelement",
+                    "hideLabel": true,
+                    "tableView": false
+                },
+                {
+                    "key": "panel",
+                    "input": false,
+                    "title": "Type of Tactic",
+                    "tableView": false,
+                    "components": [
+                        {
+                            "input": true,
+                            "tableView": true,
+                            "label": "Type of tactic",
+                            "key": "panelTypeoftactic",
+                            "values": [
+                                {
+                                    "value": "fieldInitiatedTactic",
+                                    "label": "Field Initiated Tactic",
+                                    "shortcut": ""
+                                },
+                                {
+                                    "value": "hqInitiatedProject",
+                                    "label": "HQ Initiated Project",
+                                    "shortcut": ""
+                                },
+                                {
+                                    "value": "hqLeadProject",
+                                    "label": "HQ Lead Project",
+                                    "shortcut": ""
+                                }
+                            ],
+                            "type": "radio",
+                            "optionsLabelPosition": "right",
+                            "hideLabel": true,
+                            "inline": true,
+                            "labelWidth": 30,
+                            "labelMargin": 3
+                        },
+                        {
+                            "label": "Columns",
+                            "input": false,
+                            "tableView": false,
+                            "key": "panelColumns",
+                            "columns": [
+                                {
+                                    "components": [
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Tactic Name",
+                                            "key": "panelColumnsTacticName",
+                                            "spellcheck": true,
+                                            "type": "textfield",
+                                            "hideOnChildrenHidden": false
+                                        }
+                                    ],
+                                    "width": 6,
+                                    "offset": 0,
+                                    "push": 0,
+                                    "pull": 0,
+                                    "size": "md"
+                                },
+                                {
+                                    "components": [
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Tactic Description",
+                                            "key": "panelColumnsTacticDescription",
+                                            "spellcheck": true,
+                                            "type": "textfield",
+                                            "hideOnChildrenHidden": false
+                                        }
+                                    ],
+                                    "width": 6,
+                                    "offset": 0,
+                                    "push": 0,
+                                    "pull": 0,
+                                    "size": "md"
+                                }
+                            ],
+                            "type": "columns",
+                            "hideLabel": true
+                        },
+                        {
+                            "label": "Columns",
+                            "input": false,
+                            "tableView": false,
+                            "key": "panelColumns3",
+                            "columns": [
+                                {
+                                    "components": [
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Keyword",
+                                            "key": "panelColumns3Keyword",
+                                            "data": {
+                                                "values": [
+                                                    {
+                                                        "value": "",
+                                                        "label": ""
+                                                    }
+                                                ]
+                                            },
+                                            "type": "select",
+                                            "hideOnChildrenHidden": false
+                                        }
+                                    ],
+                                    "width": 6,
+                                    "offset": 0,
+                                    "push": 0,
+                                    "pull": 0,
+                                    "size": "md"
+                                },
+                                {
+                                    "components": [
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Vertical Team",
+                                            "key": "panelColumns3VerticalTeam",
+                                            "data": {
+                                                "values": [
+                                                    {
+                                                        "value": "",
+                                                        "label": ""
+                                                    }
+                                                ]
+                                            },
+                                            "type": "select",
+                                            "hideOnChildrenHidden": false
+                                        }
+                                    ],
+                                    "width": 6,
+                                    "offset": 0,
+                                    "push": 0,
+                                    "pull": 0,
+                                    "size": "md"
+                                }
+                            ],
+                            "type": "columns",
+                            "hideLabel": true
+                        },
+                        {
+                            "label": "Columns",
+                            "input": false,
+                            "tableView": false,
+                            "key": "panelColumns2",
+                            "columns": [
+                                {
+                                    "components": [
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Tactic Leader",
+                                            "key": "panelColumns2TacticLeader",
+                                            "spellcheck": true,
+                                            "type": "textfield",
+                                            "hideOnChildrenHidden": false
+                                        }
+                                    ],
+                                    "width": 8,
+                                    "offset": 0,
+                                    "push": 0,
+                                    "pull": 0,
+                                    "size": "md"
+                                },
+                                {
+                                    "components": [],
+                                    "width": 4,
+                                    "offset": 0,
+                                    "push": 0,
+                                    "pull": 0,
+                                    "size": "md"
+                                }
+                            ],
+                            "type": "columns",
+                            "hideLabel": true
+                        }
+                    ],
+                    "type": "panel",
+                    "collapsible": false,
+                    "collapsed": false,
+                    "label": "Panel"
+                },
+                {
+                    "label": "Columns",
+                    "input": false,
+                    "tableView": false,
+                    "key": "columns3",
+                    "columns": [
+                        {
+                            "components": [
+                                {
+                                    "key": "columns3Panel",
+                                    "input": false,
+                                    "title": "Tactic Timeline",
+                                    "tableView": false,
+                                    "components": [
+                                        {
+                                            "label": "Columns",
+                                            "input": false,
+                                            "tableView": false,
+                                            "key": "columns3PanelColumns",
+                                            "columns": [
+                                                {
+                                                    "components": [
+                                                        {
+                                                            "input": true,
+                                                            "tableView": true,
+                                                            "label": "Productivity Savings Period Start",
+                                                            "key": "columns3PanelColumnsRadio",
+                                                            "values": [
+                                                                {
+                                                                    "value": "start2020",
+                                                                    "label": "2020",
+                                                                    "shortcut": ""
+                                                                },
+                                                                {
+                                                                    "value": "start2021",
+                                                                    "label": "2021",
+                                                                    "shortcut": ""
+                                                                }
+                                                            ],
+                                                            "type": "radio",
+                                                            "optionsLabelPosition": "right",
+                                                            "inline": true,
+                                                            "dataGridLabel": false,
+                                                            "hideOnChildrenHidden": false
+                                                        }
+                                                    ],
+                                                    "width": 7,
+                                                    "offset": 0,
+                                                    "push": 0,
+                                                    "pull": 0,
+                                                    "size": "md"
+                                                },
+                                                {
+                                                    "components": [
+                                                        {
+                                                            "input": true,
+                                                            "tableView": true,
+                                                            "label": "Period",
+                                                            "key": "startPeriod",
+                                                            "data": {
+                                                                "values": [
+                                                                    {
+                                                                        "value": "1",
+                                                                        "label": "1"
+                                                                    },
+                                                                    {
+                                                                        "value": "2",
+                                                                        "label": "2"
+                                                                    },
+                                                                    {
+                                                                        "value": "3",
+                                                                        "label": "3"
+                                                                    },
+                                                                    {
+                                                                        "value": "4",
+                                                                        "label": "4"
+                                                                    },
+                                                                    {
+                                                                        "value": "5",
+                                                                        "label": "5"
+                                                                    },
+                                                                    {
+                                                                        "value": "6",
+                                                                        "label": "6"
+                                                                    },
+                                                                    {
+                                                                        "value": "7",
+                                                                        "label": "7"
+                                                                    },
+                                                                    {
+                                                                        "value": "8",
+                                                                        "label": "8"
+                                                                    },
+                                                                    {
+                                                                        "value": "9",
+                                                                        "label": "9"
+                                                                    },
+                                                                    {
+                                                                        "value": "10",
+                                                                        "label": "10"
+                                                                    },
+                                                                    {
+                                                                        "value": "11",
+                                                                        "label": "11"
+                                                                    },
+                                                                    {
+                                                                        "value": "12",
+                                                                        "label": "12"
+                                                                    },
+                                                                    {
+                                                                        "value": "13",
+                                                                        "label": "13"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "type": "select",
+                                                            "lockKey": true,
+                                                            "hideOnChildrenHidden": false
+                                                        }
+                                                    ],
+                                                    "width": 5,
+                                                    "offset": 0,
+                                                    "push": 0,
+                                                    "pull": 0,
+                                                    "size": "md"
+                                                }
+                                            ],
+                                            "type": "columns",
+                                            "hideLabel": true
+                                        },
+                                        {
+                                            "label": "Columns",
+                                            "input": false,
+                                            "tableView": false,
+                                            "key": "columns3PanelColumns2",
+                                            "columns": [
+                                                {
+                                                    "components": [
+                                                        {
+                                                            "input": true,
+                                                            "tableView": true,
+                                                            "label": "Productivity Savings Period End",
+                                                            "key": "columns3PanelColumns2Radio",
+                                                            "values": [
+                                                                {
+                                                                    "value": "end2020",
+                                                                    "label": "2020",
+                                                                    "shortcut": ""
+                                                                },
+                                                                {
+                                                                    "value": "end2021",
+                                                                    "label": "2021",
+                                                                    "shortcut": ""
+                                                                }
+                                                            ],
+                                                            "type": "radio",
+                                                            "optionsLabelPosition": "right",
+                                                            "inline": true,
+                                                            "hideOnChildrenHidden": false
+                                                        }
+                                                    ],
+                                                    "width": 7,
+                                                    "offset": 0,
+                                                    "push": 0,
+                                                    "pull": 0,
+                                                    "size": "md"
+                                                },
+                                                {
+                                                    "components": [
+                                                        {
+                                                            "input": true,
+                                                            "tableView": true,
+                                                            "label": "Period",
+                                                            "key": "endPeriod",
+                                                            "data": {
+                                                                "json": [
+                                                                    {
+                                                                        "label": "1",
+                                                                        "value": "1"
+                                                                    },
+                                                                    {
+                                                                        "label": "2",
+                                                                        "value": "2"
+                                                                    },
+                                                                    {
+                                                                        "label": "3",
+                                                                        "value": "3"
+                                                                    },
+                                                                    {
+                                                                        "label": "4",
+                                                                        "value": "4"
+                                                                    },
+                                                                    {
+                                                                        "label": "5",
+                                                                        "value": "5"
+                                                                    },
+                                                                    {
+                                                                        "label": "6",
+                                                                        "value": "6"
+                                                                    },
+                                                                    {
+                                                                        "label": "7",
+                                                                        "value": "7"
+                                                                    },
+                                                                    {
+                                                                        "label": "8",
+                                                                        "value": "8"
+                                                                    },
+                                                                    {
+                                                                        "label": "9",
+                                                                        "value": "9"
+                                                                    },
+                                                                    {
+                                                                        "label": "10",
+                                                                        "value": "10"
+                                                                    },
+                                                                    {
+                                                                        "label": "11",
+                                                                        "value": "11"
+                                                                    },
+                                                                    {
+                                                                        "label": "12",
+                                                                        "value": "12"
+                                                                    },
+                                                                    {
+                                                                        "label": "13",
+                                                                        "value": "13"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "dataSrc": "json",
+                                                            "valueProperty": "value",
+                                                            "type": "select",
+                                                            "lockKey": true,
+                                                            "hideOnChildrenHidden": false
+                                                        }
+                                                    ],
+                                                    "width": 5,
+                                                    "offset": 0,
+                                                    "push": 0,
+                                                    "pull": 0,
+                                                    "size": "md"
+                                                }
+                                            ],
+                                            "type": "columns",
+                                            "hideLabel": true
+                                        },
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "inputType": "text",
+                                            "label": "Total",
+                                            "key": "totalTactic",
+                                            "delimiter": true,
+                                            "decimalLimit": 0,
+                                            "requireDecimal": false,
+                                            "type": "currency",
+                                            "lockKey": true
+                                        }
+                                    ],
+                                    "type": "panel",
+                                    "hideOnChildrenHidden": false,
+                                    "label": "Panel"
+                                }
+                            ],
+                            "width": 6,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        },
+                        {
+                            "components": [
+                                {
+                                    "key": "columns3Panel2",
+                                    "input": false,
+                                    "title": "Expected Savings in $",
+                                    "tableView": false,
+                                    "components": [
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Status",
+                                            "key": "columns3Panel2Status",
+                                            "data": {
+                                                "values": [
+                                                    {
+                                                        "value": "",
+                                                        "label": ""
+                                                    }
+                                                ],
+                                                "json": [
+                                                    {
+                                                        "label": "Active",
+                                                        "value": "active"
+                                                    },
+                                                    {
+                                                        "label": "Cancelled",
+                                                        "value": "cancelled"
+                                                    },
+                                                    {
+                                                        "label": "Completed",
+                                                        "value": "completed"
+                                                    },
+                                                    {
+                                                        "label": "Delayed",
+                                                        "value": "delayed"
+                                                    },
+                                                    {
+                                                        "label": "Pipeline",
+                                                        "value": "pipeline"
+                                                    }
+                                                ]
+                                            },
+                                            "dataSrc": "json",
+                                            "valueProperty": "value",
+                                            "validate": {
+                                                "required": true
+                                            },
+                                            "type": "select",
+                                            "labelWidth": 30,
+                                            "labelMargin": 3
+                                        },
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "inputType": "number",
+                                            "label": "2020 Savings",
+                                            "key": "columns3Panel22020Savings",
+                                            "type": "number",
+                                            "calculateValue": "value = Math.round(parseInt(data['startPeriod']) * (parseInt(data['totalTactic']) / (parseInt(data['startPeriod']) + parseInt(data['endPeriod']))));"
+                                        },
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "inputType": "number",
+                                            "label": "2021 Savings",
+                                            "key": "columns3Panel2Number",
+                                            "type": "number",
+                                            "calculateValue": "value = Math.round(parseInt(data['endPeriod']) * (parseInt(data['totalTactic']) / (parseInt(data['startPeriod']) + parseInt(data['endPeriod']))));"
+                                        },
+                                        {
+                                            "input": true,
+                                            "tableView": true,
+                                            "label": "Actual Full Year Savings",
+                                            "key": "columns3Panel2ActualFullYearSavings",
+                                            "spellcheck": true,
+                                            "type": "textfield"
+                                        }
+                                    ],
+                                    "type": "panel",
+                                    "hideOnChildrenHidden": false,
+                                    "label": "Panel"
+                                }
+                            ],
+                            "width": 6,
+                            "offset": 0,
+                            "push": 0,
+                            "pull": 0,
+                            "size": "md"
+                        }
+                    ],
+                    "type": "columns",
+                    "hideLabel": true
+                },
+                {
+                    "input": true,
+                    "label": "Submit",
+                    "tableView": false,
+                    "key": "submit",
+                    "type": "button"
+                }
+            ],
+            "properties": {}
+        },
+        "searchForm": {
+            "title": "SearchForm",
+            "type": "form",
+            "name": "searchForm",
+            "path": "searchform",
+            "display": "wizard",
+            "tags": [],
+            "settings": {
+                "recaptcha": {
+                    "isEnabled": false
+                }
+            },
+            "components": [
+                {
+                    "title": "Test 1",
+                    "label": "Test 1",
+                    "type": "panel",
+                    "key": "page1",
+                    "components": [
+                        {
+                            "label": "Table",
+                            "cellAlignment": "left",
+                            "tableView": true,
+                            "key": "table1",
+                            "type": "table",
+                            "numRows": 2,
+                            "input": false,
+                            "rows": [
+                                [
+                                    {
+                                        "components": [
+                                            {
+                                                "label": "Text Field",
+                                                "spellcheck": true,
+                                                "tableView": true,
+                                                "calculateServer": false,
+                                                "key": "textField",
+                                                "type": "textfield",
+                                                "input": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "label": "Parent",
+                                                "widget": "choicesjs",
+                                                "tableView": true,
+                                                "data": {
+                                                    "values": [
+                                                        {
+                                                            "label": "Test 1",
+                                                            "value": "test1"
+                                                        },
+                                                        {
+                                                            "label": "Test 2",
+                                                            "value": "test2"
+                                                        },
+                                                        {
+                                                            "label": "Test 3",
+                                                            "value": "test3"
+                                                        },
+                                                        {
+                                                            "label": "Test 4",
+                                                            "value": "test4"
+                                                        }
+                                                    ]
+                                                },
+                                                "selectThreshold": 0.3,
+                                                "calculateServer": false,
+                                                "key": "select2",
+                                                "type": "select",
+                                                "indexeddb": {
+                                                    "filter": {}
+                                                },
+                                                "input": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "label": "Child",
+                                                "widget": "choicesjs",
+                                                "tableView": true,
+                                                "data": {
+                                                    "values": [
+                                                        {
+                                                            "label": "C Test 1",
+                                                            "value": "cTest1"
+                                                        },
+                                                        {
+                                                            "label": "C Test 2",
+                                                            "value": "cTest2"
+                                                        },
+                                                        {
+                                                            "label": "C Test 3",
+                                                            "value": "cTest3"
+                                                        }
+                                                    ]
+                                                },
+                                                "selectThreshold": 0.3,
+                                                "calculateServer": false,
+                                                "key": "select3",
+                                                "type": "select",
+                                                "indexeddb": {
+                                                    "filter": {}
+                                                },
+                                                "input": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                [
+                                    {
+                                        "components": [
+                                            {
+                                                "label": "Number",
+                                                "mask": false,
+                                                "spellcheck": true,
+                                                "tableView": true,
+                                                "delimiter": false,
+                                                "requireDecimal": false,
+                                                "inputFormat": "plain",
+                                                "calculateServer": false,
+                                                "key": "number",
+                                                "type": "number",
+                                                "input": true,
+                                                "inputType": "number"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "label": "Select Boxes",
+                                                "optionsLabelPosition": "right",
+                                                "inline": true,
+                                                "tableView": true,
+                                                "defaultValue": {
+                                                    "": false,
+                                                    "check1": false,
+                                                    "check2": false,
+                                                    "check3": false
+                                                },
+                                                "values": [
+                                                    {
+                                                        "label": "check 1",
+                                                        "value": "check1",
+                                                        "shortcut": ""
+                                                    },
+                                                    {
+                                                        "label": "check 2",
+                                                        "value": "check2",
+                                                        "shortcut": ""
+                                                    },
+                                                    {
+                                                        "label": "check 3",
+                                                        "value": "check3",
+                                                        "shortcut": ""
+                                                    }
+                                                ],
+                                                "calculateServer": false,
+                                                "key": "selectBoxes1",
+                                                "type": "selectboxes",
+                                                "input": true,
+                                                "inputType": "checkbox"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "label": "Currency",
+                                                "mask": false,
+                                                "spellcheck": true,
+                                                "tableView": true,
+                                                "currency": "USD",
+                                                "inputFormat": "plain",
+                                                "calculateServer": false,
+                                                "key": "currency",
+                                                "type": "currency",
+                                                "input": true,
+                                                "delimiter": true,
+                                                "inputType": "text",
+                                                "decimalLimit": 2,
+                                                "requireDecimal": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            ],
+                            "clearOnHide": false,
+                            "hideLabel": true
+                        },
+                        {
+                            "label": "Tabs",
+                            "components": [
+                                {
+                                    "label": "Tab 1",
+                                    "key": "tab1",
+                                    "components": [
+                                        {
+                                            "label": " Text Field on Tab 11111",
+                                            "spellcheck": true,
+                                            "tableView": true,
+                                            "calculateServer": false,
+                                            "key": "textField1",
+                                            "type": "textfield",
+                                            "input": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Tab 2 ",
+                                    "key": "tab2",
+                                    "components": [
+                                        {
+                                            "label": "Text Field on Tab 2",
+                                            "spellcheck": true,
+                                            "tableView": true,
+                                            "calculateServer": false,
+                                            "key": "textFieldOnTab2",
+                                            "type": "textfield",
+                                            "input": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "tableView": true,
+                            "key": "tabs1",
+                            "type": "tabs",
+                            "input": false,
+                            "persistent": true
+                        },
+                        {
+                            "label": "Url",
+                            "spellcheck": true,
+                            "tableView": true,
+                            "calculateServer": false,
+                            "key": "url",
+                            "type": "url",
+                            "input": true
+                        },
+                        {
+                            "label": "Data Source",
+                            "calculateServer": true,
+                            "trigger": {
+                                "init": true,
+                                "server": true
+                            },
+                            "refreshOn": "data",
+                            "dataSrc": "url",
+                            "fetch": {
+                                "url": "https://jsonplaceholder.typicode.com/todos/1",
+                                "method": "get",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "forwardHeaders": true,
+                                "authenticate": false
+                            },
+                            "key": "dataSource",
+                            "type": "datasource",
+                            "input": true,
+                            "tableView": false
+                        },
+                        {
+                            "html": "<p>{{form.dataSource}}</p>\n",
+                            "label": "Content",
+                            "refreshOnChange": true,
+                            "tableView": false,
+                            "key": "content",
+                            "type": "content",
+                            "input": false
+                        }
+                    ],
+                    "input": false,
+                    "tableView": false,
+                    "breadcrumbClickable": true,
+                    "buttonSettings": {
+                        "previous": true,
+                        "cancel": true,
+                        "next": true
+                    },
+                    "collapsible": false
+                },
+                {
+                    "title": "test 2",
+                    "label": "Page 2",
+                    "type": "panel",
+                    "key": "page2",
+                    "input": false,
+                    "tableView": false,
+                    "components": [
+                        {
+                            "input": true,
+                            "tableView": true,
+                            "inputType": "number",
+                            "label": "test 2 Number",
+                            "key": "page2Test2Number",
+                            "type": "number"
+                        }
+                    ]
+                },
+                {
+                    "title": "Test 3",
+                    "label": "Page 3",
+                    "type": "panel",
+                    "key": "page3",
+                    "input": false,
+                    "tableView": false,
+                    "components": [
+                        {
+                            "input": true,
+                            "tableView": true,
+                            "label": "Text Area",
+                            "key": "page3TextArea",
+                            "spellcheck": true,
+                            "type": "textarea",
+                            "inputFormat": "plain"
+                        }
+                    ]
+                }
+            ],
+            "properties": {}
+        },
+        "nestedExample": {
+            "title": "NestedExample",
+            "type": "form",
+            "name": "nestedExample",
+            "path": "nestedexample",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "label": "Text Field",
+                    "spellcheck": true,
+                    "tableView": true,
+                    "calculateServer": false,
+                    "key": "textField",
+                    "type": "textfield",
+                    "input": true
+                },
+                {
+                    "label": "Select",
+                    "widget": "choicesjs",
+                    "tableView": true,
+                    "data": {
+                        "values": [
+                            {
+                                "label": "",
+                                "value": ""
+                            }
+                        ]
+                    },
+                    "selectThreshold": 0.3,
+                    "calculateServer": false,
+                    "key": "select",
+                    "type": "select",
+                    "indexeddb": {
+                        "filter": {}
+                    },
+                    "input": true
+                },
+                {
+                    "label": "Number",
+                    "mask": false,
+                    "spellcheck": true,
+                    "tableView": false,
+                    "delimiter": false,
+                    "requireDecimal": false,
+                    "inputFormat": "plain",
+                    "calculateServer": false,
+                    "key": "number",
+                    "type": "number",
+                    "input": true
+                },
+                {
+                    "label": "Form",
+                    "tableView": true,
+                    "form": "siteFlus",
+                    "key": "form",
+                    "conditional": {
+                        "show": true,
+                        "when": "number",
+                        "eq": "10"
+                    },
+                    "type": "form",
+                    "input": true
+                },
+                {
+                    "label": "Edit Grid",
+                    "disableAddingRemovingRows": false,
+                    "tableView": false,
+                    "modal": false,
+                    "calculateServer": false,
+                    "key": "editGrid",
+                    "type": "editgrid",
+                    "input": true,
+                    "components": [
+                        {
+                            "label": "Text Field",
+                            "spellcheck": true,
+                            "tableView": true,
+                            "calculateServer": false,
+                            "key": "textField2",
+                            "type": "textfield",
+                            "input": true
+                        }
+                    ]
+                },
+                {
+                    "label": "Data Map",
+                    "tableView": false,
+                    "calculateServer": false,
+                    "key": "dataMap",
+                    "type": "datamap",
+                    "input": true,
+                    "valueComponent": {
+                        "type": "textfield",
+                        "key": "key",
+                        "label": "Value",
+                        "input": true,
+                        "hideLabel": true,
+                        "tableView": true
+                    }
+                },
+                {
+                    "label": "Tree",
+                    "tableView": false,
+                    "calculateServer": false,
+                    "key": "tree",
+                    "type": "tree",
+                    "input": true,
+                    "tree": true,
+                    "components": []
+                },
+                {
+                    "type": "button",
+                    "label": "Submit",
+                    "key": "submit",
+                    "disableOnInvalid": true,
+                    "input": true,
+                    "tableView": false
+                }
+            ],
+            "properties": {}
+        },
+        "tabNavigationEg": {
+            "title": "TabNavigationEg",
+            "type": "form",
+            "name": "tabNavigationEg",
+            "path": "tabnavigationeg",
+            "display": "wizard",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "title": "Page 1",
+                    "label": "Page 1",
+                    "type": "panel",
+                    "key": "page1",
+                    "components": [
+                        {
+                            "label": "Tabs",
+                            "components": [
+                                {
+                                    "label": "Cutomer",
+                                    "key": "cutomer",
+                                    "components": [
+                                        {
+                                            "label": "SelectCustomer",
+                                            "widget": "choicesjs",
+                                            "tableView": true,
+                                            "dataSrc": "resource",
+                                            "data": {
+                                                "values": [
+                                                    {
+                                                        "label": "",
+                                                        "value": ""
+                                                    }
+                                                ],
+                                                "resource": "customer",
+                                                "json": "",
+                                                "url": "",
+                                                "custom": ""
+                                            },
+                                            "template": "<span>{{ item.data.customerName }}</span>",
+                                            "selectThreshold": 0.3,
+                                            "calculateServer": false,
+                                            "key": "selectCustomer",
+                                            "type": "select",
+                                            "indexeddb": {
+                                                "filter": {}
+                                            },
+                                            "input": true,
+                                            "addResource": false,
+                                            "reference": false,
+                                            "placeholder": "",
+                                            "prefix": "",
+                                            "customClass": "",
+                                            "suffix": "",
+                                            "multiple": false,
+                                            "defaultValue": null,
+                                            "protected": false,
+                                            "unique": false,
+                                            "persistent": true,
+                                            "hidden": false,
+                                            "clearOnHide": true,
+                                            "refreshOn": "",
+                                            "redrawOn": "",
+                                            "modalEdit": false,
+                                            "labelPosition": "top",
+                                            "description": "",
+                                            "errorLabel": "",
+                                            "tooltip": "",
+                                            "hideLabel": false,
+                                            "tabindex": "",
+                                            "disabled": false,
+                                            "autofocus": false,
+                                            "dbIndex": false,
+                                            "customDefaultValue": "",
+                                            "calculateValue": "",
+                                            "attributes": {},
+                                            "validateOn": "change",
+                                            "validate": {
+                                                "required": false,
+                                                "custom": "",
+                                                "customPrivate": false,
+                                                "strictDateValidation": false,
+                                                "multiple": false,
+                                                "unique": false
+                                            },
+                                            "conditional": {
+                                                "show": null,
+                                                "when": null,
+                                                "eq": ""
+                                            },
+                                            "overlay": {
+                                                "style": "",
+                                                "left": "",
+                                                "top": "",
+                                                "width": "",
+                                                "height": ""
+                                            },
+                                            "allowCalculateOverride": false,
+                                            "encrypted": false,
+                                            "showCharCount": false,
+                                            "showWordCount": false,
+                                            "properties": {},
+                                            "allowMultipleMasks": false,
+                                            "clearOnRefresh": false,
+                                            "limit": 100,
+                                            "valueProperty": "",
+                                            "lazyLoad": true,
+                                            "filter": "",
+                                            "searchEnabled": true,
+                                            "searchField": "",
+                                            "minSearch": 0,
+                                            "readOnlyValue": false,
+                                            "authenticate": false,
+                                            "selectFields": "",
+                                            "searchThreshold": 0.3,
+                                            "fuseOptions": {
+                                                "include": "score",
+                                                "threshold": 0.3
+                                            },
+                                            "customOptions": {},
+                                            "id": "eq3lv8l"
+                                        },
+                                        {
+                                            "label": "HTML",
+                                            "tag": "img",
+                                            "attrs": [
+                                                {
+                                                    "attr": "src",
+                                                    "value": "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
+                                                },
+                                                {
+                                                    "attr": "width",
+                                                    "value": "100"
+                                                }
+                                            ],
+                                            "refreshOnChange": false,
+                                            "tableView": false,
+                                            "key": "html",
+                                            "type": "htmlelement",
+                                            "input": false,
+                                            "placeholder": "",
+                                            "prefix": "",
+                                            "customClass": "",
+                                            "suffix": "",
+                                            "multiple": false,
+                                            "defaultValue": null,
+                                            "protected": false,
+                                            "unique": false,
+                                            "persistent": false,
+                                            "hidden": false,
+                                            "clearOnHide": true,
+                                            "refreshOn": "",
+                                            "redrawOn": "",
+                                            "modalEdit": false,
+                                            "labelPosition": "top",
+                                            "description": "",
+                                            "errorLabel": "",
+                                            "tooltip": "",
+                                            "hideLabel": false,
+                                            "tabindex": "",
+                                            "disabled": false,
+                                            "autofocus": false,
+                                            "dbIndex": false,
+                                            "customDefaultValue": "",
+                                            "calculateValue": "",
+                                            "widget": null,
+                                            "attributes": {},
+                                            "validateOn": "change",
+                                            "validate": {
+                                                "required": false,
+                                                "custom": "",
+                                                "customPrivate": false,
+                                                "strictDateValidation": false,
+                                                "multiple": false,
+                                                "unique": false
+                                            },
+                                            "conditional": {
+                                                "show": null,
+                                                "when": null,
+                                                "eq": ""
+                                            },
+                                            "overlay": {
+                                                "style": "",
+                                                "left": "",
+                                                "top": "",
+                                                "width": "",
+                                                "height": ""
+                                            },
+                                            "allowCalculateOverride": false,
+                                            "encrypted": false,
+                                            "showCharCount": false,
+                                            "showWordCount": false,
+                                            "properties": {},
+                                            "allowMultipleMasks": false,
+                                            "content": "",
+                                            "id": "eihqx3q"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Orders",
+                                    "key": "orders",
+                                    "components": [
+                                        {
+                                            "label": "OrderType",
+                                            "spellcheck": true,
+                                            "tableView": true,
+                                            "calculateServer": false,
+                                            "key": "orderType",
+                                            "type": "textfield",
+                                            "input": true,
+                                            "placeholder": "",
+                                            "prefix": "",
+                                            "customClass": "",
+                                            "suffix": "",
+                                            "multiple": false,
+                                            "defaultValue": null,
+                                            "protected": false,
+                                            "unique": false,
+                                            "persistent": true,
+                                            "hidden": false,
+                                            "clearOnHide": true,
+                                            "refreshOn": "",
+                                            "redrawOn": "",
+                                            "modalEdit": false,
+                                            "labelPosition": "top",
+                                            "description": "",
+                                            "errorLabel": "",
+                                            "tooltip": "",
+                                            "hideLabel": false,
+                                            "tabindex": "",
+                                            "disabled": false,
+                                            "autofocus": false,
+                                            "dbIndex": false,
+                                            "customDefaultValue": "",
+                                            "calculateValue": "",
+                                            "widget": {
+                                                "type": "input"
+                                            },
+                                            "attributes": {},
+                                            "validateOn": "change",
+                                            "validate": {
+                                                "required": false,
+                                                "custom": "",
+                                                "customPrivate": false,
+                                                "strictDateValidation": false,
+                                                "multiple": false,
+                                                "unique": false,
+                                                "minLength": "",
+                                                "maxLength": "",
+                                                "pattern": ""
+                                            },
+                                            "conditional": {
+                                                "show": null,
+                                                "when": null,
+                                                "eq": ""
+                                            },
+                                            "overlay": {
+                                                "style": "",
+                                                "left": "",
+                                                "top": "",
+                                                "width": "",
+                                                "height": ""
+                                            },
+                                            "allowCalculateOverride": false,
+                                            "encrypted": false,
+                                            "showCharCount": false,
+                                            "showWordCount": false,
+                                            "properties": {},
+                                            "allowMultipleMasks": false,
+                                            "mask": false,
+                                            "inputType": "text",
+                                            "inputFormat": "plain",
+                                            "inputMask": "",
+                                            "id": "ewlxz1a"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Summary",
+                                    "key": "summary",
+                                    "components": []
+                                }
+                            ],
+                            "tableView": false,
+                            "key": "tabs1",
+                            "type": "tabs",
+                            "input": false,
+                            "placeholder": "",
+                            "prefix": "",
+                            "customClass": "",
+                            "suffix": "",
+                            "multiple": false,
+                            "defaultValue": null,
+                            "protected": false,
+                            "unique": false,
+                            "persistent": false,
+                            "hidden": false,
+                            "clearOnHide": true,
+                            "refreshOn": "",
+                            "redrawOn": "",
+                            "modalEdit": false,
+                            "labelPosition": "top",
+                            "description": "",
+                            "errorLabel": "",
+                            "tooltip": "",
+                            "hideLabel": false,
+                            "tabindex": "",
+                            "disabled": false,
+                            "autofocus": false,
+                            "dbIndex": false,
+                            "customDefaultValue": "",
+                            "calculateValue": "",
+                            "widget": null,
+                            "attributes": {},
+                            "validateOn": "change",
+                            "validate": {
+                                "required": false,
+                                "custom": "",
+                                "customPrivate": false,
+                                "strictDateValidation": false,
+                                "multiple": false,
+                                "unique": false
+                            },
+                            "conditional": {
+                                "show": null,
+                                "when": null,
+                                "eq": ""
+                            },
+                            "overlay": {
+                                "style": "",
+                                "left": "",
+                                "top": "",
+                                "width": "",
+                                "height": ""
+                            },
+                            "allowCalculateOverride": false,
+                            "encrypted": false,
+                            "showCharCount": false,
+                            "showWordCount": false,
+                            "properties": {},
+                            "allowMultipleMasks": false,
+                            "tree": false,
+                            "id": "eml57k"
+                        }
+                    ],
+                    "input": false,
+                    "tableView": false
+                },
+                {
+                    "title": "Page 2",
+                    "label": "Page 2",
+                    "type": "panel",
+                    "key": "page2",
+                    "input": false,
+                    "tableView": false,
+                    "components": [
+                        {
+                            "label": "Name",
+                            "spellcheck": true,
+                            "tableView": true,
+                            "calculateServer": false,
+                            "key": "name",
+                            "type": "textfield",
+                            "input": true,
+                            "placeholder": "",
+                            "prefix": "",
+                            "customClass": "",
+                            "suffix": "",
+                            "multiple": false,
+                            "defaultValue": null,
+                            "protected": false,
+                            "unique": false,
+                            "persistent": true,
+                            "hidden": false,
+                            "clearOnHide": true,
+                            "refreshOn": "",
+                            "redrawOn": "",
+                            "modalEdit": false,
+                            "labelPosition": "top",
+                            "description": "",
+                            "errorLabel": "",
+                            "tooltip": "",
+                            "hideLabel": false,
+                            "tabindex": "",
+                            "disabled": false,
+                            "autofocus": false,
+                            "dbIndex": false,
+                            "customDefaultValue": "",
+                            "calculateValue": "",
+                            "widget": {
+                                "type": "input"
+                            },
+                            "attributes": {},
+                            "validateOn": "change",
+                            "validate": {
+                                "required": false,
+                                "custom": "",
+                                "customPrivate": false,
+                                "strictDateValidation": false,
+                                "multiple": false,
+                                "unique": false,
+                                "minLength": "",
+                                "maxLength": "",
+                                "pattern": ""
+                            },
+                            "conditional": {
+                                "show": null,
+                                "when": null,
+                                "eq": ""
+                            },
+                            "overlay": {
+                                "style": "",
+                                "left": "",
+                                "top": "",
+                                "width": "",
+                                "height": ""
+                            },
+                            "allowCalculateOverride": false,
+                            "encrypted": false,
+                            "showCharCount": false,
+                            "showWordCount": false,
+                            "properties": {},
+                            "allowMultipleMasks": false,
+                            "mask": false,
+                            "inputType": "text",
+                            "inputFormat": "plain",
+                            "inputMask": "",
+                            "id": "ejg185"
+                        }
+                    ]
+                }
+            ],
+            "properties": {}
+        },
+        "fm1": {
+            "title": "FM - 1",
+            "type": "form",
+            "name": "fm1",
+            "path": "fm1",
+            "display": "form",
+            "tags": [
+                "common"
+            ],
+            "components": [
+                {
+                    "label": "Table",
+                    "cellAlignment": "left",
+                    "tableView": false,
+                    "key": "table",
+                    "type": "table",
+                    "input": false,
+                    "rows": [
+                        [
+                            {
+                                "components": [
+                                    {
+                                        "label": "Text Field",
+                                        "spellcheck": true,
+                                        "tableView": true,
+                                        "calculateServer": false,
+                                        "key": "textField",
+                                        "type": "textfield",
+                                        "input": true
+                                    }
+                                ]
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "label": "Number",
+                                        "mask": false,
+                                        "spellcheck": true,
+                                        "tableView": false,
+                                        "delimiter": false,
+                                        "requireDecimal": false,
+                                        "inputFormat": "plain",
+                                        "calculateServer": false,
+                                        "key": "number",
+                                        "type": "number",
+                                        "input": true
+                                    }
+                                ]
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "label": "Text Field",
+                                        "spellcheck": true,
+                                        "tableView": true,
+                                        "calculateServer": false,
+                                        "key": "textField1",
+                                        "type": "textfield",
+                                        "input": true
+                                    }
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "components": [
+                                    {
+                                        "label": "Select",
+                                        "tableView": true,
+                                        "data": {
+                                            "values": [
+                                                {
+                                                    "label": "",
+                                                    "value": ""
+                                                }
+                                            ]
+                                        },
+                                        "selectThreshold": 0.3,
+                                        "calculateServer": false,
+                                        "key": "select",
+                                        "type": "select",
+                                        "indexeddb": {
+                                            "filter": {}
+                                        },
+                                        "input": true
+                                    }
+                                ]
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "label": "Phone Number",
+                                        "spellcheck": true,
+                                        "tableView": true,
+                                        "calculateServer": false,
+                                        "key": "phoneNumber",
+                                        "type": "phoneNumber",
+                                        "input": true
+                                    }
+                                ]
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "label": "Currency",
+                                        "mask": false,
+                                        "spellcheck": true,
+                                        "tableView": false,
+                                        "currency": "INR",
+                                        "inputFormat": "plain",
+                                        "calculateServer": false,
+                                        "key": "currency",
+                                        "type": "currency",
+                                        "input": true,
+                                        "delimiter": true
+                                    }
+                                ]
+                            }
+                        ]
+                    ],
+                    "numRows": 2
+                },
+                {
+                    "label": "Submit",
+                    "showValidations": false,
+                    "tableView": false,
+                    "key": "submit",
+                    "type": "button",
+                    "input": true
+                }
+            ]
+        },
+        "fm2": {
+            "title": "FM - 2 ",
+            "type": "form",
+            "name": "fm2",
+            "path": "fm2",
+            "display": "wizard",
+            "tags": [
+                "common"
+            ],
+            "components": [
+                {
+                    "title": "Page 1",
+                    "label": "Page 1",
+                    "type": "panel",
+                    "key": "page1",
+                    "components": [
+                        {
+                            "label": "Text Field on Page 1 ",
+                            "spellcheck": true,
+                            "tableView": true,
+                            "calculateServer": false,
+                            "key": "textFieldOnPage1",
+                            "type": "textfield",
+                            "input": true
+                        }
+                    ],
+                    "input": false,
+                    "tableView": false
+                },
+                {
+                    "title": "Page 2",
+                    "label": "Page 2",
+                    "type": "panel",
+                    "key": "page2",
+                    "components": [
+                        {
+                            "label": "Text Field on Page 2",
+                            "spellcheck": true,
+                            "tableView": true,
+                            "calculateServer": false,
+                            "key": "textFieldOnPage2",
+                            "type": "textfield",
+                            "input": true
+                        }
+                    ],
+                    "input": false,
+                    "tableView": false,
+                    "breadcrumbClickable": true,
+                    "buttonSettings": {
+                        "previous": true,
+                        "cancel": true,
+                        "next": true
+                    },
+                    "collapsible": false
+                }
+            ]
+        },
+        "filterForm": {
+            "title": "Filter",
+            "type": "form",
+            "name": "filter",
+            "path": "filter",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "label": "HTML",
+                    "tag": "img",
+                    "attrs": [
+                        {
+                            "attr": "",
+                            "value": ""
+                        }
+                    ],
+                    "refreshOnChange": false,
+                    "tableView": false,
+                    "key": "html",
+                    "type": "htmlelement",
+                    "input": false
+                },
+                {
+                    "label": "Text Field",
+                    "spellcheck": true,
+                    "tableView": true,
+                    "calculateServer": false,
+                    "key": "textField",
+                    "type": "textfield",
+                    "input": true
+                },
+                {
+                    "label": "Data Source",
+                    "persistent": "client-only",
+                    "calculateServer": false,
+                    "trigger": {
+                        "init": false,
+                        "server": false
+                    },
+                    "refreshOn": "select1",
+                    "dataSrc": "url",
+                    "fetch": {
+                        "url": "https://url/{{data.test2}}",
+                        "method": "get",
+                        "headers": [
+                            {
+                                "key": "",
+                                "value": ""
+                            }
+                        ],
+                        "forwardHeaders": false,
+                        "authenticate": false
+                    },
+                    "key": "dataSource",
+                    "type": "datasource",
+                    "input": true,
+                    "tableView": false
+                },
+                {
+                    "label": "test 2",
+                    "tableView": true,
+                    "data": {
+                        "resource": "regionFlus"
+                    },
+                    "valueProperty": "data.REGION_FLUS_ID",
+                    "template": "<span>{{ item.data.REGION_FLUS_ID }}</span>",
+                    "selectThreshold": 0.3,
+                    "calculateServer": false,
+                    "key": "select1",
+                    "type": "select",
+                    "indexeddb": {
+                        "filter": {}
+                    },
+                    "input": true,
+                    "value": "test2"
+                }
+            ],
+            "properties": {}
+        },
+        "pdfFormEg": {
+            "title": "PdfFormEg",
+            "type": "form",
+            "name": "pdfFormEg",
+            "path": "pdfformeg",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "title": "Page 1",
+                    "label": "Page 1",
+                    "type": "panel",
+                    "key": "page1",
+                    "components": [
+                        {
+                            "label": "FirstName",
+                            "labelPosition": "top",
+                            "placeholder": "",
+                            "description": "",
+                            "tooltip": "",
+                            "prefix": "",
+                            "suffix": "",
+                            "widget": {
+                                "type": "input"
+                            },
+                            "inputMask": "",
+                            "allowMultipleMasks": false,
+                            "customClass": "",
+                            "tabindex": "",
+                            "hidden": false,
+                            "hideLabel": false,
+                            "showWordCount": false,
+                            "showCharCount": false,
+                            "mask": false,
+                            "autofocus": false,
+                            "spellcheck": true,
+                            "disabled": false,
+                            "tableView": true,
+                            "modalEdit": false,
+                            "multiple": false,
+                            "persistent": true,
+                            "inputFormat": "plain",
+                            "protected": false,
+                            "dbIndex": false,
+                            "case": "",
+                            "encrypted": false,
+                            "redrawOn": "",
+                            "clearOnHide": true,
+                            "customDefaultValue": "",
+                            "calculateValue": "",
+                            "calculateServer": false,
+                            "allowCalculateOverride": false,
+                            "validateOn": "change",
+                            "validate": {
+                                "required": false,
+                                "pattern": "",
+                                "customMessage": "",
+                                "custom": "",
+                                "customPrivate": false,
+                                "json": "",
+                                "minLength": "",
+                                "maxLength": "",
+                                "strictDateValidation": false,
+                                "multiple": false,
+                                "unique": false
+                            },
+                            "unique": false,
+                            "errorLabel": "",
+                            "key": "firstName",
+                            "tags": [],
+                            "properties": {},
+                            "conditional": {
+                                "show": null,
+                                "when": null,
+                                "eq": "",
+                                "json": ""
+                            },
+                            "customConditional": "",
+                            "logic": [],
+                            "attributes": {},
+                            "overlay": {
+                                "style": "",
+                                "page": "",
+                                "left": "",
+                                "top": "",
+                                "width": "",
+                                "height": ""
+                            },
+                            "type": "textfield",
+                            "input": true,
+                            "refreshOn": "",
+                            "inputType": "text",
+                            "id": "etrm12r",
+                            "defaultValue": ""
+                        },
+                        {
+                            "label": "LastName",
+                            "labelPosition": "top",
+                            "placeholder": "",
+                            "description": "",
+                            "tooltip": "",
+                            "prefix": "",
+                            "suffix": "",
+                            "widget": {
+                                "type": "input"
+                            },
+                            "inputMask": "",
+                            "allowMultipleMasks": false,
+                            "customClass": "",
+                            "tabindex": "",
+                            "hidden": false,
+                            "hideLabel": false,
+                            "showWordCount": false,
+                            "showCharCount": false,
+                            "mask": false,
+                            "autofocus": false,
+                            "spellcheck": true,
+                            "disabled": false,
+                            "tableView": true,
+                            "modalEdit": false,
+                            "multiple": false,
+                            "persistent": true,
+                            "inputFormat": "plain",
+                            "protected": false,
+                            "dbIndex": false,
+                            "case": "",
+                            "encrypted": false,
+                            "redrawOn": "",
+                            "clearOnHide": true,
+                            "customDefaultValue": "",
+                            "calculateValue": "",
+                            "calculateServer": false,
+                            "allowCalculateOverride": false,
+                            "validateOn": "change",
+                            "validate": {
+                                "required": false,
+                                "pattern": "",
+                                "customMessage": "",
+                                "custom": "",
+                                "customPrivate": false,
+                                "json": "",
+                                "minLength": "",
+                                "maxLength": "",
+                                "strictDateValidation": false,
+                                "multiple": false,
+                                "unique": false
+                            },
+                            "unique": false,
+                            "errorLabel": "",
+                            "key": "lastName",
+                            "tags": [],
+                            "properties": {},
+                            "conditional": {
+                                "show": null,
+                                "when": null,
+                                "eq": "",
+                                "json": ""
+                            },
+                            "customConditional": "",
+                            "logic": [],
+                            "attributes": {},
+                            "overlay": {
+                                "style": "",
+                                "page": "",
+                                "left": "",
+                                "top": "",
+                                "width": "",
+                                "height": ""
+                            },
+                            "type": "textfield",
+                            "input": true,
+                            "refreshOn": "",
+                            "inputType": "text",
+                            "id": "ekj8i74",
+                            "defaultValue": ""
+                        }
+                    ],
+                    "input": false,
+                    "placeholder": "",
+                    "prefix": "",
+                    "customClass": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": null,
+                    "protected": false,
+                    "unique": false,
+                    "persistent": false,
+                    "hidden": false,
+                    "clearOnHide": false,
+                    "refreshOn": "",
+                    "redrawOn": "",
+                    "tableView": false,
+                    "modalEdit": false,
+                    "labelPosition": "top",
+                    "description": "",
+                    "errorLabel": "",
+                    "tooltip": "",
+                    "hideLabel": false,
+                    "tabindex": "",
+                    "disabled": false,
+                    "autofocus": false,
+                    "dbIndex": false,
+                    "customDefaultValue": "",
+                    "calculateValue": "",
+                    "widget": null,
+                    "attributes": {},
+                    "validateOn": "change",
+                    "validate": {
+                        "required": false,
+                        "custom": "",
+                        "customPrivate": false,
+                        "strictDateValidation": false,
+                        "multiple": false,
+                        "unique": false
+                    },
+                    "conditional": {
+                        "show": null,
+                        "when": null,
+                        "eq": ""
+                    },
+                    "overlay": {
+                        "style": "",
+                        "left": "",
+                        "top": "",
+                        "width": "",
+                        "height": ""
+                    },
+                    "allowCalculateOverride": false,
+                    "encrypted": false,
+                    "showCharCount": false,
+                    "showWordCount": false,
+                    "properties": {},
+                    "allowMultipleMasks": false,
+                    "tree": false,
+                    "theme": "default",
+                    "breadcrumb": "default",
+                    "id": "ek3mmfd"
+                }
+            ],
+            "properties": {}
+        },
+        "pdfSecondEg": {
+            "title": "PdfSecondEg",
+            "type": "form",
+            "name": "pdfSecondEg",
+            "path": "pdfsecondeg",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "text",
+                    "inputMask": "",
+                    "label": "FirstName",
+                    "key": "firstName",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": "",
+                    "protected": false,
+                    "unique": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "spellcheck": true,
+                    "validate": {
+                        "required": false,
+                        "minLength": "",
+                        "maxLength": "",
+                        "pattern": "",
+                        "custom": "",
+                        "customPrivate": false
+                    },
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "type": "textfield",
+                    "labelPosition": "top",
+                    "inputFormat": "plain",
+                    "tags": [],
+                    "properties": {}
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "text",
+                    "inputMask": "",
+                    "label": "SecondName",
+                    "key": "secondName",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": "",
+                    "protected": false,
+                    "unique": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "spellcheck": true,
+                    "validate": {
+                        "required": false,
+                        "minLength": "",
+                        "maxLength": "",
+                        "pattern": "",
+                        "custom": "",
+                        "customPrivate": false
+                    },
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "type": "textfield",
+                    "labelPosition": "top",
+                    "inputFormat": "plain",
+                    "tags": [],
+                    "properties": {}
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "label": "Submit",
+                    "tableView": false,
+                    "key": "submit",
+                    "size": "md",
+                    "leftIcon": "",
+                    "rightIcon": "",
+                    "block": false,
+                    "action": "submit",
+                    "disableOnInvalid": false,
+                    "theme": "primary",
+                    "type": "button"
+                }
+            ],
+            "properties": {}
+        }
+    },
+    "actions": {
+        "adminLogin:login": {
+            "title": "Login",
+            "name": "login",
+            "form": "adminLogin",
+            "settings": {
+                "resources": [
+                    "admin"
+                ],
+                "username": "email",
+                "password": "password",
+                "allowedAttempts": 5,
+                "attemptWindow": 30,
+                "lockWait": 1800
+            },
+            "priority": 2,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "userLogin:login": {
+            "title": "Login",
+            "name": "login",
+            "form": "userLogin",
+            "settings": {
+                "resources": [
+                    "user"
+                ],
+                "username": "email",
+                "password": "password",
+                "allowedAttempts": 5,
+                "attemptWindow": 30,
+                "lockWait": 1800
+            },
+            "priority": 2,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "userRegister:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "userRegister",
+            "settings": {
+                "resource": "user",
+                "fields": {
+                    "email": "email",
+                    "password": "password"
+                }
+            },
+            "priority": 11,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "userRegister:login": {
+            "title": "Login",
+            "name": "login",
+            "form": "userRegister",
+            "settings": {
+                "resources": [
+                    "user"
+                ],
+                "username": "email",
+                "password": "password"
+            },
+            "priority": 2,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "admin:role": {
+            "title": "Role Assignment",
+            "name": "role",
+            "form": "admin",
+            "settings": {
+                "association": "new",
+                "type": "add",
+                "role": "administrator"
+            },
+            "priority": 1,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "after"
+            ]
+        },
+        "admin:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "admin",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "user:role": {
+            "title": "Role Assignment",
+            "name": "role",
+            "form": "user",
+            "settings": {
+                "association": "new",
+                "type": "add",
+                "role": "authenticated"
+            },
+            "priority": 1,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "after"
+            ]
+        },
+        "user:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "user",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "flus:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "flus",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "regionFlus:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "regionFlus",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "siteFlus:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "siteFlus",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "searchForm:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "searchForm",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "nestedExample:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "nestedExample",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "tabNavigationEg:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "tabNavigationEg",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "customer:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "customer",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "fm1:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "fm1",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "fm2:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "fm2",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "pdfFormEg:email": {
+            "title": "Email",
+            "name": "email",
+            "form": "pdfFormEg",
+            "condition": {
+                "field": "",
+                "eq": "",
+                "value": "",
+                "custom": ""
+            },
+            "settings": {
+                "transport": "default",
+                "from": "no-reply@form.io",
+                "emails": [
+                    "Vedantam.Chaitanya@pepsico.com"
+                ],
+                "sendEach": false,
+                "cc": [
+                    ""
+                ],
+                "bcc": [
+                    ""
+                ],
+                "subject": "New submission for {{ form.title }}.",
+                "template": "https://pro.formview.io/assets/email.html",
+                "message": "{{ submission(data, form.components) }}",
+                "attachFiles": false,
+                "attachPDF": true,
+                "pdfName": "{{ form.name }}-{{ submission._id }}"
+            },
+            "priority": 0,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "after"
+            ]
+        },
+        "pdfSecondEg:save": {
+            "title": "Save Submission",
+            "name": "save",
+            "form": "pdfSecondEg",
+            "priority": 10,
+            "method": [
+                "create",
+                "update"
+            ],
+            "handler": [
+                "before"
+            ]
+        },
+        "pdfSecondEg:email": {
+            "title": "Email",
+            "name": "email",
+            "form": "pdfSecondEg",
+            "condition": {},
+            "settings": {
+                "sendEach": false,
+                "attachFiles": false,
+                "attachPDF": true,
+                "transport": "default",
+                "from": "no-reply@form.io",
+                "emails": [
+                    "Vedantam.Chaitanya@pepsico.com",
+                    "BalaKrishna.Deshamouni@cognizant.com",
+                    "Saima.Rasheed@pepsico.com",
+                    "Maharshi.Choudhury@pepsico.com"
+                ],
+                "cc": [
+                    ""
+                ],
+                "bcc": [
+                    ""
+                ],
+                "subject": "New submission for {{ form.title }}.",
+                "template": "https://pro.formview.io/assets/email.html",
+                "message": "{{ submission(data, form.components) }}",
+                "pdfName": "{{ form.name }}-{{ submission._id }}"
+            },
+            "priority": 0,
+            "method": [
+                "create"
+            ],
+            "handler": [
+                "after"
+            ]
+        }
+    },
+    "resources": {
+        "user": {
+            "title": "User",
+            "type": "resource",
+            "name": "davearfa",
+            "path": "user",
+            "display": "form",
+            "tags": [],
+            "components": [
+                {
+                    "type": "email",
+                    "placeholder": "Enter your email address",
+                    "key": "email",
+                    "label": "Email",
+                    "tableView": true,
+                    "input": true
+                },
+                {
+                    "label": "Password",
+                    "placeholder": "Enter your password.",
+                    "spellcheck": true,
+                    "tableView": false,
+                    "calculateServer": false,
+                    "key": "password",
+                    "type": "password",
+                    "protected": true,
+                    "inputType": "password",
+                    "input": true
+                },
+                {
+                    "type": "button",
+                    "disableOnInvalid": true,
+                    "key": "submit",
+                    "tableView": false,
+                    "label": "Submit",
+                    "input": true
+                }
+            ]
+        },
+        "admin": {
+            "title": "Admin",
+            "type": "resource",
+            "name": "admin",
+            "path": "admin",
+            "tags": [],
+            "components": [
+                {
+                    "type": "email",
+                    "persistent": true,
+                    "unique": false,
+                    "protected": false,
+                    "defaultValue": "",
+                    "suffix": "",
+                    "prefix": "",
+                    "placeholder": "Enter your email address",
+                    "key": "email",
+                    "label": "Email",
+                    "inputType": "email",
+                    "tableView": true,
+                    "input": true
+                },
+                {
+                    "type": "password",
+                    "persistent": true,
+                    "protected": true,
+                    "suffix": "",
+                    "prefix": "",
+                    "placeholder": "Enter your password.",
+                    "key": "password",
+                    "label": "Password",
+                    "inputType": "password",
+                    "tableView": false,
+                    "input": true
+                },
+                {
+                    "type": "button",
+                    "theme": "primary",
+                    "disableOnInvalid": true,
+                    "action": "submit",
+                    "block": false,
+                    "rightIcon": "",
+                    "leftIcon": "",
+                    "size": "md",
+                    "key": "submit",
+                    "tableView": false,
+                    "label": "Submit",
+                    "input": true
+                }
+            ]
+        },
+        "regionFlus": {
+            "title": "REGION_FLUS",
+            "type": "resource",
+            "name": "regionFlus",
+            "path": "regionflus",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "text",
+                    "inputMask": "",
+                    "label": "REGION_FLUS_ID",
+                    "key": "REGION_FLUS_ID",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": "",
+                    "protected": false,
+                    "unique": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "spellcheck": true,
+                    "validate": {
+                        "required": false,
+                        "minLength": "",
+                        "maxLength": "",
+                        "pattern": "",
+                        "custom": "",
+                        "customPrivate": false,
+                        "strictDateValidation": false,
+                        "multiple": false,
+                        "unique": false
+                    },
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "type": "textfield",
+                    "labelPosition": "top",
+                    "inputFormat": "plain",
+                    "tags": [],
+                    "properties": {},
+                    "lockKey": true,
+                    "customClass": "",
+                    "refreshOn": "",
+                    "redrawOn": "",
+                    "modalEdit": false,
+                    "description": "",
+                    "errorLabel": "",
+                    "tooltip": "",
+                    "hideLabel": false,
+                    "tabindex": "",
+                    "disabled": false,
+                    "dbIndex": false,
+                    "customDefaultValue": "",
+                    "calculateValue": "",
+                    "widget": {
+                        "type": "input"
+                    },
+                    "attributes": {},
+                    "validateOn": "change",
+                    "overlay": {
+                        "style": "",
+                        "left": "",
+                        "top": "",
+                        "width": "",
+                        "height": ""
+                    },
+                    "allowCalculateOverride": false,
+                    "encrypted": false,
+                    "showCharCount": false,
+                    "showWordCount": false,
+                    "allowMultipleMasks": false,
+                    "mask": false,
+                    "id": "e8t434e"
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "text",
+                    "inputMask": "",
+                    "label": "REGION_FLUS_NM",
+                    "key": "REGION_FLUS_NM",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": "",
+                    "protected": false,
+                    "unique": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "spellcheck": true,
+                    "validate": {
+                        "required": false,
+                        "minLength": "",
+                        "maxLength": "",
+                        "pattern": "",
+                        "custom": "",
+                        "customPrivate": false,
+                        "strictDateValidation": false,
+                        "multiple": false,
+                        "unique": false
+                    },
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "type": "textfield",
+                    "labelPosition": "top",
+                    "inputFormat": "plain",
+                    "tags": [],
+                    "properties": {},
+                    "lockKey": true,
+                    "customClass": "",
+                    "refreshOn": "",
+                    "redrawOn": "",
+                    "modalEdit": false,
+                    "description": "",
+                    "errorLabel": "",
+                    "tooltip": "",
+                    "hideLabel": false,
+                    "tabindex": "",
+                    "disabled": false,
+                    "dbIndex": false,
+                    "customDefaultValue": "",
+                    "calculateValue": "",
+                    "widget": {
+                        "type": "input"
+                    },
+                    "attributes": {},
+                    "validateOn": "change",
+                    "overlay": {
+                        "style": "",
+                        "left": "",
+                        "top": "",
+                        "width": "",
+                        "height": ""
+                    },
+                    "allowCalculateOverride": false,
+                    "encrypted": false,
+                    "showCharCount": false,
+                    "showWordCount": false,
+                    "allowMultipleMasks": false,
+                    "mask": false,
+                    "id": "eeexb0h"
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "label": "Submit",
+                    "tableView": false,
+                    "key": "submit",
+                    "size": "md",
+                    "leftIcon": "",
+                    "rightIcon": "",
+                    "block": false,
+                    "action": "submit",
+                    "disableOnInvalid": false,
+                    "theme": "primary",
+                    "type": "button",
+                    "placeholder": "",
+                    "prefix": "",
+                    "customClass": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": null,
+                    "protected": false,
+                    "unique": false,
+                    "persistent": false,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "refreshOn": "",
+                    "redrawOn": "",
+                    "modalEdit": false,
+                    "labelPosition": "top",
+                    "description": "",
+                    "errorLabel": "",
+                    "tooltip": "",
+                    "hideLabel": false,
+                    "tabindex": "",
+                    "disabled": false,
+                    "dbIndex": false,
+                    "customDefaultValue": "",
+                    "calculateValue": "",
+                    "widget": {
+                        "type": "input"
+                    },
+                    "attributes": {},
+                    "validateOn": "change",
+                    "validate": {
+                        "required": false,
+                        "custom": "",
+                        "customPrivate": false,
+                        "strictDateValidation": false,
+                        "multiple": false,
+                        "unique": false
+                    },
+                    "conditional": {
+                        "show": null,
+                        "when": null,
+                        "eq": ""
+                    },
+                    "overlay": {
+                        "style": "",
+                        "left": "",
+                        "top": "",
+                        "width": "",
+                        "height": ""
+                    },
+                    "allowCalculateOverride": false,
+                    "encrypted": false,
+                    "showCharCount": false,
+                    "showWordCount": false,
+                    "properties": {},
+                    "allowMultipleMasks": false,
+                    "dataGridLabel": true,
+                    "id": "e5grq2g"
+                }
+            ],
+            "properties": {}
+        },
+        "siteFlus": {
+            "title": "SITE_FLUS",
+            "type": "resource",
+            "name": "siteFlus",
+            "path": "siteflus",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "number",
+                    "label": "SITE_FLUS_ID",
+                    "key": "SITE_FLUS_ID",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "defaultValue": "",
+                    "protected": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "validate": {
+                        "required": false,
+                        "min": "",
+                        "max": "",
+                        "step": "any",
+                        "integer": "",
+                        "multiple": "",
+                        "custom": ""
+                    },
+                    "type": "number",
+                    "labelPosition": "top",
+                    "tags": [],
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "properties": {},
+                    "lockKey": true
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "text",
+                    "inputMask": "",
+                    "label": "SITE_FLUS_NM",
+                    "key": "SITE_FLUS_NM",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": "",
+                    "protected": false,
+                    "unique": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "spellcheck": true,
+                    "validate": {
+                        "required": false,
+                        "minLength": "",
+                        "maxLength": "",
+                        "pattern": "",
+                        "custom": "",
+                        "customPrivate": false
+                    },
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "type": "textfield",
+                    "labelPosition": "top",
+                    "inputFormat": "plain",
+                    "tags": [],
+                    "properties": {},
+                    "lockKey": true
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "number",
+                    "label": "REGION_FLUS_ID",
+                    "key": "regionFlusId",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "defaultValue": "",
+                    "protected": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "validate": {
+                        "required": false,
+                        "min": "",
+                        "max": "",
+                        "step": "any",
+                        "integer": "",
+                        "multiple": "",
+                        "custom": ""
+                    },
+                    "type": "number",
+                    "labelPosition": "top",
+                    "tags": [],
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "properties": {}
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "text",
+                    "inputMask": "",
+                    "label": "REGION_FLUS_NAME",
+                    "key": "REGION_FLUS_NAME",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "multiple": false,
+                    "defaultValue": "",
+                    "protected": false,
+                    "unique": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "spellcheck": true,
+                    "validate": {
+                        "required": false,
+                        "minLength": "",
+                        "maxLength": "",
+                        "pattern": "",
+                        "custom": "",
+                        "customPrivate": false
+                    },
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "type": "textfield",
+                    "labelPosition": "top",
+                    "inputFormat": "plain",
+                    "tags": [],
+                    "properties": {},
+                    "lockKey": true
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "tableView": true,
+                    "inputType": "number",
+                    "label": "DIVLOC_NUM",
+                    "key": "divlocNum",
+                    "placeholder": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "defaultValue": "",
+                    "protected": false,
+                    "persistent": true,
+                    "hidden": false,
+                    "clearOnHide": true,
+                    "validate": {
+                        "required": false,
+                        "min": "",
+                        "max": "",
+                        "step": "any",
+                        "integer": "",
+                        "multiple": "",
+                        "custom": ""
+                    },
+                    "type": "number",
+                    "labelPosition": "top",
+                    "tags": [],
+                    "conditional": {
+                        "show": "",
+                        "when": null,
+                        "eq": ""
+                    },
+                    "properties": {}
+                },
+                {
+                    "autofocus": false,
+                    "input": true,
+                    "label": "Submit",
+                    "tableView": false,
+                    "key": "submit",
+                    "size": "md",
+                    "leftIcon": "",
+                    "rightIcon": "",
+                    "block": false,
+                    "action": "submit",
+                    "disableOnInvalid": false,
+                    "theme": "primary",
+                    "type": "button"
+                }
+            ],
+            "properties": {}
+        },
+        "customer": {
+            "title": "Customer",
+            "type": "resource",
+            "name": "customer",
+            "path": "customer",
+            "display": "form",
+            "tags": [],
+            "settings": {},
+            "components": [
+                {
+                    "label": "CustomerName",
+                    "spellcheck": true,
+                    "tableView": true,
+                    "calculateServer": false,
+                    "key": "customerName",
+                    "type": "textfield",
+                    "input": true
+                },
+                {
+                    "type": "button",
+                    "label": "Submit",
+                    "key": "submit",
+                    "disableOnInvalid": true,
+                    "input": true,
+                    "tableView": false
+                }
+            ],
+            "properties": {}
+        }
+    }
+}
